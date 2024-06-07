@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 
-PROJECT = DemoProject
+PROJECT = Lean4RingTheory
 
 .PHONY: all build blueprint blueprint-dev analyze serve
 
@@ -22,4 +22,5 @@ serve: blueprint-dev analyze
 	(cd blueprint && inv serve)
 
 update:
-	lake -Kenv=dev update -R
+	(curl -L https://raw.githubusercontent.com/leanprover-community/mathlib4/master/lean-toolchain -o lean-toolchain && \
+		lake -Kenv=dev update -R)
